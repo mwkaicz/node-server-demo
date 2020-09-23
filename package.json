@@ -1,0 +1,19 @@
+{
+  "name": "node-server-demo",
+  "version": "1.0.0",
+  "description": "simple node.js http server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwkaicz/node-server-demo.git"
+  },
+  "author": "mwkaicz",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/mwkaicz/node-server-demo/issues"
+  },
+  "homepage": "https://github.com/mwkaicz/node-server-demo#readme"
+}
