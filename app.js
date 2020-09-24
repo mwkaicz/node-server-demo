@@ -1,5 +1,7 @@
 const http = require('http');
 const { exec } = require('child_process');
+const { stdout, stderr } = require('process');
+const { resolveSrv } = require('dns');
 
 const port = 80;
 
@@ -30,11 +32,22 @@ function routovaciFce(request, result){
   if (request.method === 'GET'){        
     switch(url){            
       case '/test':
-          if (params['a'] !== void 0 && params['a'] === '10' ){
-            let hodnota = spustBashPrikaz('ping 1.1.1.1'); //POZOR: tento prikaz by mel byt vzdy na pevno v kodu a nikdy by nemel být soucastí nejakeho prichoziho parametru!
-            console.log(hodnota);
-          }
           ret = 'text/html/json/cokoliv';
+          if (params['c'] !== void 0 && params['a'] !== void 0 && params['c'] === 'ping' ){
+            //POZOR: tento prikaz by mel byt vzdy na pevno v kodu a nikdy by nemel být soucastí nejakeho prichoziho parametru!l
+            let promisa = spustBashPrikaz('ping ' + params['a'])
+            // let promisa = spustBashPrikaz('ping 1.1.1.1')
+              .then(function(retVal){
+                console.log( retVal);
+                ret = retVal;
+                result.end(ret);
+              })
+              .catch(function(e){
+                console.error(e);
+              })
+            ; 
+            
+          }
           break;
       case '/':
       default: 
@@ -43,9 +56,10 @@ function routovaciFce(request, result){
             + '<head></head>'
             + '<body>nejaky obsah HTML stranky</body>'
           + '</html>';
+          result.end(ret);
     }
   }
-  result.end(ret);
+  
 }
 
 
@@ -68,13 +82,15 @@ function spustBashPrikaz(prikaz, timeout = -1){
           console.error(e,stdout,stderr);  
           resolve( 'nejaka navratova hodnota pro chybu');
         }else{
-          console.log(stdout);
-          resolve ('prikaz se provedl / popr. nejaka ziskana data z stdout');
+          // resolve ('prikaz se provedl / popr. nejaka ziskana data z stdout');
+          resolve(stdout);
         }
     });
 
     // priklad jednoducheho odstraneni sitove jednotky:   exec('net use M: /delete');
 
+  }, reject => {
+    console.warn(e, stdout, stderr);
   });
 };
 
