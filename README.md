@@ -1,5 +1,5 @@
 # node-server-demo
-ukázka jednoduchého http serveru přes node.js, který zprostředkovává spuštění .bash/.sh/.bat scriptů či jiných příkazů v command line 
+ukázka jednoduchého http serveru přes node.js, který zprostředkovává spuštění .bash/.sh/.bat scriptů, či jiných příkazů v command line 
 
 https://nodejs.org/en/download/
 
