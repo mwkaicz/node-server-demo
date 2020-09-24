@@ -1,0 +1,9 @@
+.controls{
+    margin: 0 8px;
+    margin-bottom: 16px;
+}
+
+.output textarea{
+    width: 300px;
+    min-height: 200px;
+}

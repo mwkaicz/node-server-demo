@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mwkaicz/node-server-demo/issues"
   },
-  "homepage": "https://github.com/mwkaicz/node-server-demo#readme"
+  "homepage": "https://github.com/mwkaicz/node-server-demo#readme",
+  "dependencies": {
+    "socket.io": "^2.3.0"
+  }
 }

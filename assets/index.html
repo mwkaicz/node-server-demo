@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="/js/libs/socket.io.js"></script>
+    
+  </head>
+  <body>
+    <div class="controls">
+      <button id="cmdLeft">&lt;-</button>
+      <button id="cmdRight">-&gt;</button>
+      <input type="text" id="pingAddress" value="1.1.1.1">
+      <button id="ping">PING </button>
+    </div>
+    <div class="output">
+      <textarea id="console-output">
+      </textarea>
+    </div>
+    
+    <script src="/js/main.js"></script> 
+    <!-- diky umisteni scriptu zde nepotrebuje cekat pres onload metodu na nacteni stranky -->
+  </body>
+</html>
